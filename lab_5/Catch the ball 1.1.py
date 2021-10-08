@@ -47,5 +47,8 @@ while not finished:
                 new_ball()
     pygame.display.update()
     screen.fill(BLACK)
+    f = pygame.font.Font(None, 36)
+    text = f.render('Score:' + str(score), True, (180, 0, 0))
+    screen.blit(text, (10, 50))
 
 pygame.quit()
