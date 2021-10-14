@@ -5,7 +5,8 @@ from pygame.draw import *
 FPS = 30
 pygame.init()
 screen = pygame.display.set_mode((400, 400))
-number_of_balls = 1
+print("Сколько должно быть шариков?")
+number_of_balls = int(input())
 
 
 def handle_events(x, y, finished):
