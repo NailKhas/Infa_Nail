@@ -39,7 +39,7 @@ def game_process(xcirc, ycirc, x, y, rad, score, ball_speed):
         if (x - xcirc[i]) ** 2 + (y - ycirc[i]) ** 2 < rad[i] ** 2:
             f = pygame.font.Font(None, 36)
             rect(screen, (0, 0, 0), (10, 10, 130, 40))
-            score += 50 - rad[i]
+            score += 51 - rad[i]
             text = f.render('Score:' + str(score), True, (180, 0, 0))
             screen.blit(text, (10, 10))
             xcirc[i], ycirc[i], rad[i], ball_speed[i] = new_ball(xcirc[i], ycirc[i], rad[i], ball_speed[i])
@@ -82,7 +82,7 @@ def new_ball(xcirc, ycirc, rad, ball_speed):
     circle(screen, (0, 0, 0), (xcirc, ycirc), rad)
     ycirc = random.randint(90, 750)
     xcirc = random.randint(50, 950)
-    rad = random.randint(12, 50)
+    rad = random.randint(20, 50)
     ball_speed[0] = random.randint(-8, 8)
     ball_speed[1] = random.randint(-8, 8)
     circle(screen, (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (xcirc, ycirc), rad)
@@ -109,13 +109,18 @@ finished = False
 x = 0
 y = 0
 score = 0
+play_time = 10000
 
 while not finished:
     clock.tick(FPS)
+    if pygame.time.get_ticks() >= play_time:
+        finished = True
     finished, x, y = handle_events(x, y, finished)
     xcirc, ycirc, rad, score, ball_speed = game_process(xcirc, ycirc, x, y, rad, score, ball_speed)
     x = 800
     y = 800
     pygame.display.update()
+
+
 
 pygame.quit()
