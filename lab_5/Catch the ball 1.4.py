@@ -4,7 +4,7 @@ from pygame.draw import *
 
 FPS = 30
 pygame.init()
-screen = pygame.display.set_mode((400, 400))
+screen = pygame.display.set_mode((1000, 800))
 print("Сколько должно быть шариков?")
 number_of_balls = int(input())
 
@@ -57,11 +57,11 @@ def move_ball(xcirc, ycirc, rad, ball_speed):
     :param ball_speed: скорость шарика по соответствующей оси
     """
     circle(screen, (0, 0, 0), (xcirc, ycirc), rad)
-    if xcirc + ball_speed[0] > 400 - rad and xcirc > rad:
+    if xcirc + ball_speed[0] > 1000 - rad and xcirc > rad:
         ball_speed[0] = -ball_speed[0]
     elif xcirc + ball_speed[0] < rad and xcirc < rad:
         ball_speed[0] = -ball_speed[0]
-    if ycirc + ball_speed[1] > 400 - rad and ycirc > rad:
+    if ycirc + ball_speed[1] > 800 - rad and ycirc > rad:
         ball_speed[1] = -ball_speed[1]
     elif ycirc + ball_speed[1] < 40 + rad and ycirc < 40 + rad:
         ball_speed[1] = -ball_speed[1]
@@ -80,8 +80,8 @@ def new_ball(xcirc, ycirc, rad, ball_speed):
     :param ball_speed: скорость шарика по соответствующей оси
     """
     circle(screen, (0, 0, 0), (xcirc, ycirc), rad)
-    ycirc = random.randint(90, 350)
-    xcirc = random.randint(50, 350)
+    ycirc = random.randint(90, 750)
+    xcirc = random.randint(50, 950)
     rad = random.randint(12, 50)
     ball_speed[0] = random.randint(-8, 8)
     ball_speed[1] = random.randint(-8, 8)
@@ -95,10 +95,9 @@ rad = [None] * number_of_balls
 color = [None] * number_of_balls
 ball_speed = []
 for i in range(number_of_balls):
-    ycirc[i] = random.randint(20, 380)
-    xcirc[i] = random.randint(20, 380)
+    ycirc[i] = random.randint(20, 780)
+    xcirc[i] = random.randint(20, 980)
     rad[i] = random.randint(20, 50)
-    color[i] = (random.randint(0, 250), random.randint(0, 250), random.randint(0, 250))
     ball_speed.append([random.randint(10, 50), random.randint(10, 50)])
 
 for i in range(number_of_balls):
