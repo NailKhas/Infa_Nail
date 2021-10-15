@@ -109,7 +109,7 @@ finished = False
 x = 0
 y = 0
 score = 0
-play_time = 10000
+play_time = 60000
 
 while not finished:
     clock.tick(FPS)
@@ -120,7 +120,7 @@ while not finished:
     x = 800
     y = 800
     pygame.display.update()
-
+print("Score:" + str(score))
 
 
 pygame.quit()
