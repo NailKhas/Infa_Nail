@@ -7,7 +7,7 @@ from pygame.draw import *
 FPS = 30
 pygame.init()
 screen = pygame.display.set_mode((1000, 800))
-Amount_of_balls = 25
+Amount_of_balls = 10
 
 
 def handle_events():
@@ -100,6 +100,7 @@ def score_to_screen(score):
     textsurface = myfont.render(str(score), False, (0, 180, 0))
     rect(screen, (0, 0, 0), (0, 0, 200, 200))
     screen.blit(textsurface, (10, 10))
+    print(str(score))
 
 
 ycirc = [None] * Amount_of_balls
@@ -108,8 +109,8 @@ rad = [None] * Amount_of_balls
 ball_speed = []
 colour = []
 for i in range(Amount_of_balls):
-    ycirc[i] = random.randint(20, 780)
-    xcirc[i] = random.randint(20, 980)
+    ycirc[i] = random.randint(20, 730)
+    xcirc[i] = random.randint(20, 930)
     rad[i] = random.randint(12, 70)
     ball_speed.append([random.randint(10,50), random.randint(10, 50)])
     colour.append([0, 0, 0])
